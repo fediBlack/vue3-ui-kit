@@ -2,7 +2,6 @@
 
 [![Tests](https://github.com/fediBlack/vue3-ui-kit/actions/workflows/test.yml/badge.svg)](https://github.com/fediBlack/vue3-ui-kit/actions)
 [![Live Demo](https://img.shields.io/badge/demo-live-brightgreen)](https://vue3-ui-kit.vercel.app/)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 A modern, lightweight, and fully typed Vue 3 component library built with TypeScript, Vitest, and Storybook.
 
