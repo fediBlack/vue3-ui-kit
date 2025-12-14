@@ -1,12 +1,10 @@
 # Vue 3 UI Kit 🎨
 
-[![Tests](https://github.com/fediBlack/vue3-ui-kit/actions/workflows/test.yml/badge.svg)](https://github.com/fediBlack/vue3-ui-kit/actions)
-[![Live Demo](https://img.shields.io/badge/demo-live-brightgreen)](https://vue3-ui-kit.vercel.app/)
-
 A modern, lightweight, and fully typed Vue 3 component library built with TypeScript, Vitest, and Storybook.
 
-[![Tests](https://github.com/YOUR-USERNAME/vue3-ui-kit/actions/workflows/test.yml/badge.svg)](https://github.com/YOUR-USERNAME/vue3-ui-kit/actions/workflows/test.yml)
-[![Coverage](https://img.shields.io/badge/coverage-85%25-brightgreen)](https://github.com/YOUR-USERNAME/vue3-ui-kit)
+[![Tests](https://github.com/fediBlack/vue3-ui-kit/actions/workflows/test.yml/badge.svg)](https://github.com/fediBlack/vue3-ui-kit/actions)
+[![Live Demo](https://img.shields.io/badge/demo-live-brightgreen)](https://vue3-ui-kit.vercel.app/)
+[![Coverage](https://img.shields.io/badge/coverage-85%25-brightgreen)](https://github.com/fediBlack/vue3-ui-kit)
 [![npm version](https://img.shields.io/npm/v/vue3-ui-kit.svg)](https://www.npmjs.com/package/vue3-ui-kit)
 
 ## ✨ Features
