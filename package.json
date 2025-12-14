@@ -1,8 +1,19 @@
 {
   "name": "vue3-ui-kit",
-  "private": true,
   "version": "0.1.0",
   "type": "module",
+  "main": "./dist/vue3-ui-kit.umd.js",
+  "module": "./dist/vue3-ui-kit.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/vue3-ui-kit.es.js",
+      "require": "./dist/vue3-ui-kit.umd.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
