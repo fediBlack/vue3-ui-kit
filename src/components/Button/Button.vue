@@ -45,7 +45,10 @@ const handleClick = (event: MouseEvent) => {
     :disabled="disabled || loading"
     @click="handleClick"
   >
-    <span v-if="loading" class="btn__spinner"></span>
+    <span
+      v-if="loading"
+      class="btn__spinner"
+    />
     <span :class="{ 'btn__content--hidden': loading }">
       <slot />
     </span>

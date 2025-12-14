@@ -15,8 +15,12 @@ interface InputProps {
 const props = withDefaults(defineProps<InputProps>(), {
   type: "text",
   size: "md",
+  placeholder: "",
+  label: "",
+  error: "",
   disabled: false,
   required: false,
+  modelValue: undefined,
 });
 
 const emit = defineEmits<{
@@ -55,9 +59,15 @@ const handleBlur = (event: FocusEvent) => {
 
 <template>
   <div class="input-wrapper">
-    <label v-if="label" class="input-label">
+    <label
+      v-if="label"
+      class="input-label"
+    >
       {{ label }}
-      <span v-if="required" class="input-required">*</span>
+      <span
+        v-if="required"
+        class="input-required"
+      >*</span>
     </label>
     <input
       :class="inputClasses"
@@ -69,8 +79,11 @@ const handleBlur = (event: FocusEvent) => {
       @input="handleInput"
       @focus="handleFocus"
       @blur="handleBlur"
-    />
-    <span v-if="error" class="input-error">{{ error }}</span>
+    >
+    <span
+      v-if="error"
+      class="input-error"
+    >{{ error }}</span>
   </div>
 </template>
 

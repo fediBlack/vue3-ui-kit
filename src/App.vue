@@ -1,5 +1,13 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+// No code yet
+</script>
 
-<template></template>
+<template>
+  <div>
+    <!-- No html yet -->
+  </div>
+</template>
 
-<style scoped></style>
+<style scoped>
+/* No style yet */
+</style>

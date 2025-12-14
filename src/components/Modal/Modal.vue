@@ -1,87 +1,106 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, watch } from 'vue'
+import { onMounted, onUnmounted, watch } from "vue";
 
 interface ModalProps {
-  modelValue: boolean
-  title?: string
-  size?: 'sm' | 'md' | 'lg' | 'xl'
-  closeOnOverlay?: boolean
-  showCloseButton?: boolean
+  modelValue: boolean;
+  title?: string;
+  size?: "sm" | "md" | "lg" | "xl";
+  closeOnOverlay?: boolean;
+  showCloseButton?: boolean;
 }
 
 const props = withDefaults(defineProps<ModalProps>(), {
-  size: 'md',
+  size: "md",
   closeOnOverlay: true,
-  showCloseButton: true
-})
+  showCloseButton: true,
+  title: undefined,
+});
 
 const emit = defineEmits<{
-  'update:modelValue': [value: boolean]
-  close: []
-}>()
+  "update:modelValue": [value: boolean];
+  close: [];
+}>();
 
 const close = () => {
-  emit('update:modelValue', false)
-  emit('close')
-}
+  emit("update:modelValue", false);
+  emit("close");
+};
 
 const handleOverlayClick = () => {
   if (props.closeOnOverlay) {
-    close()
+    close();
   }
-}
+};
 
 const handleEscape = (event: KeyboardEvent) => {
-  if (event.key === 'Escape' && props.modelValue) {
-    close()
+  if (event.key === "Escape" && props.modelValue) {
+    close();
   }
-}
+};
 
-watch(() => props.modelValue, (isOpen) => {
-  if (isOpen) {
-    document.body.style.overflow = 'hidden'
-  } else {
-    document.body.style.overflow = ''
+watch(
+  () => props.modelValue,
+  (isOpen) => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
   }
-})
+);
 
 onMounted(() => {
-  document.addEventListener('keydown', handleEscape)
-})
+  document.addEventListener("keydown", handleEscape);
+});
 
 onUnmounted(() => {
-  document.removeEventListener('keydown', handleEscape)
-  document.body.style.overflow = ''
-})
+  document.removeEventListener("keydown", handleEscape);
+  document.body.style.overflow = "";
+});
 </script>
 
 <template>
   <Teleport to="body">
     <Transition name="modal">
-      <div v-if="modelValue" class="modal-overlay" @click="handleOverlayClick">
+      <div
+        v-if="modelValue"
+        class="modal-overlay"
+        @click="handleOverlayClick"
+      >
         <div
           :class="['modal', `modal--${size}`]"
-          @click.stop
           role="dialog"
           aria-modal="true"
+          @click.stop
         >
-          <div v-if="title || showCloseButton" class="modal__header">
-            <h3 v-if="title" class="modal__title">{{ title }}</h3>
+          <div
+            v-if="title || showCloseButton"
+            class="modal__header"
+          >
+            <h3
+              v-if="title"
+              class="modal__title"
+            >
+              {{ title }}
+            </h3>
             <button
               v-if="showCloseButton"
               class="modal__close"
-              @click="close"
               aria-label="Close modal"
+              @click="close"
             >
               ×
             </button>
           </div>
-          
+
           <div class="modal__body">
             <slot />
           </div>
-          
-          <div v-if="$slots.footer" class="modal__footer">
+
+          <div
+            v-if="$slots.footer"
+            class="modal__footer"
+          >
             <slot name="footer" />
           </div>
         </div>
@@ -108,7 +127,9 @@ onUnmounted(() => {
 .modal {
   background: white;
   border-radius: 0.5rem;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
   max-height: 90vh;
   display: flex;
   flex-direction: column;

@@ -36,7 +36,7 @@ export const WithFooter: Story = {
     setup() {
       const isOpen = ref(false)
       const handleConfirm = () => {
-        alert('Confirmed!')
+        window.alert('Confirmed!')
         isOpen.value = false
       }
       return { isOpen, handleConfirm }

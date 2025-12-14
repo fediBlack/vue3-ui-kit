@@ -1,32 +1,43 @@
 <script setup lang="ts">
 interface AlertProps {
-  variant?: 'success' | 'error' | 'warning' | 'info'
-  dismissible?: boolean
-  title?: string
+  variant?: "success" | "error" | "warning" | "info";
+  dismissible?: boolean;
+  title?: string | null;
 }
 
-const props = withDefaults(defineProps<AlertProps>(), {
-  variant: 'info',
-  dismissible: false
-})
+withDefaults(defineProps<AlertProps>(), {
+  variant: "info",
+  dismissible: false,
+  title: null,
+});
 
 const emit = defineEmits<{
-  close: []
-}>()
+  close: [];
+}>();
 
 const icons = {
-  success: '✓',
-  error: '✕',
-  warning: '⚠',
-  info: 'ℹ'
-}
+  success: "✓",
+  error: "✕",
+  warning: "⚠",
+  info: "ℹ",
+};
 </script>
 
 <template>
-  <div :class="['alert', `alert--${variant}`]" role="alert">
-    <div class="alert__icon">{{ icons[variant] }}</div>
+  <div
+    :class="['alert', `alert--${variant}`]"
+    role="alert"
+  >
+    <div class="alert__icon">
+      {{ icons[variant] }}
+    </div>
     <div class="alert__content">
-      <div v-if="title" class="alert__title">{{ title }}</div>
+      <div
+        v-if="title"
+        class="alert__title"
+      >
+        {{ title }}
+      </div>
       <div class="alert__message">
         <slot />
       </div>
@@ -34,8 +45,8 @@ const icons = {
     <button
       v-if="dismissible"
       class="alert__close"
-      @click="emit('close')"
       aria-label="Close alert"
+      @click="emit('close')"
     >
       ×
     </button>
