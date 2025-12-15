@@ -12,7 +12,7 @@
       "import": "./dist/vue3-ui-kit.es.js",
       "require": "./dist/vue3-ui-kit.umd.js"
     },
-    "./style.css": "./dist/vue3-ui-kit..css"
+    "./style.css": "./dist/vue3-ui-kit.css"
   },
   "peerDependencies": {
     "vue": "^3.0.0"
